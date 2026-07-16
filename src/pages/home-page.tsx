@@ -1,2 +1,5 @@
-import { RoutePlaceholder } from './route-placeholder'
-export function HomePage() { return <RoutePlaceholder title="Atelier" /> }
+import { Hero } from '../components/home/Hero/Hero'
+
+export function HomePage() {
+  return <Hero />
+}
