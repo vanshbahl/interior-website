@@ -1,11 +1,11 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import { SiteLayout } from './components/layout/site-layout'
-import { AboutPage } from './pages/about-page'
 import { ContactPage } from './pages/contact-page'
 import { HomePage } from './pages/home-page'
 import { ProjectDetailPage } from './pages/project-detail-page'
 import { ProjectsPage } from './pages/projects-page'
+import { StudioPage } from './pages/studio-page'
 
 export function App() {
   return (
@@ -14,7 +14,8 @@ export function App() {
         <Route index element={<HomePage />} />
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="about" element={<AboutPage />} />
+        <Route path="studio" element={<StudioPage />} />
+        <Route path="about" element={<Navigate replace to="/studio" />} />
         <Route path="contact" element={<ContactPage />} />
       </Route>
     </Routes>

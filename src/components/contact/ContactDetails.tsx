@@ -1,0 +1,6 @@
+import { motion } from 'motion/react'
+
+export function ContactDetails() {
+  const details = [{ label: 'Visit', content: '14 Clerkenwell Green\nLondon EC1R 0DP' }, { label: 'Call', content: '+44 (0) 20 7946 0182' }, { label: 'Email', content: 'hello@decoranddesign.studio' }, { label: 'Business hours', content: 'Monday – Friday\n9:00am – 6:00pm' }]
+  return <div className="mt-16 border-t border-line md:mt-0">{details.map((detail, index) => <motion.div key={detail.label} initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: index * 0.06 }} className="grid grid-cols-2 gap-5 border-b border-line py-6"><p className="text-[0.62rem] font-semibold tracking-[0.16em] text-accent uppercase">{detail.label}</p><p className="break-words whitespace-pre-line text-sm leading-6 text-muted">{detail.content}</p></motion.div>)}<div className="flex gap-5 pt-7 text-[0.64rem] font-semibold tracking-[0.16em] text-ink uppercase"><a className="transition-colors hover:text-accent" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a><a className="transition-colors hover:text-accent" href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a></div></div>
+}

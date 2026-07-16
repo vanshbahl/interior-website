@@ -1,0 +1,9 @@
+import { ArrowUpRight } from 'lucide-react'
+import { motion } from 'motion/react'
+import { Link } from 'react-router-dom'
+
+import type { Project } from '../../data/projects'
+
+export function ProjectCard({ project, index }: { project: Project; index: number }) {
+  return <motion.article layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className={index % 5 === 0 ? 'md:col-span-7' : index % 5 === 1 ? 'md:col-span-5 md:mt-16' : index % 5 === 2 ? 'md:col-span-5' : index % 5 === 3 ? 'md:col-span-7 md:mt-12' : 'md:col-span-6'}><motion.div initial="rest" whileHover="hover"><Link to={`/projects/${project.slug}`} aria-label={`View ${project.title}`} className="block"><div className="relative aspect-[4/5] overflow-hidden bg-[#d8d1c5]"><motion.img src={project.coverImage} alt="" className="h-full w-full object-cover" variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }} transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }} /><motion.div className="absolute inset-0 bg-black" variants={{ rest: { opacity: 0 }, hover: { opacity: 0.3 } }} transition={{ duration: 0.4 }} /><motion.span variants={{ rest: { opacity: 0, y: 10 }, hover: { opacity: 1, y: 0 } }} transition={{ duration: 0.35 }} className="absolute bottom-6 right-6 text-white"><ArrowUpRight className="size-5" /></motion.span></div><div className="pt-5"><div className="flex items-start justify-between gap-4"><h2 className="font-display text-3xl leading-none tracking-[-0.035em] sm:text-4xl">{project.title}</h2><span className="text-[0.62rem] font-semibold tracking-[0.15em] text-muted uppercase">{project.year}</span></div><p className="mt-3 flex justify-between gap-4 text-[0.62rem] font-medium tracking-[0.14em] text-muted uppercase"><span>{project.category}</span><span>{project.location}</span></p></div></Link></motion.div></motion.article>
+}
